@@ -12,7 +12,7 @@ const Chatbot = () => {
     "Quelle est votre question ?"
   );
 
-  const messagesEndRef = useRef(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -21,7 +21,7 @@ const Chatbot = () => {
       { sender: "Vous", text: input },
     ]);
     setInput("");
-    setInitialMessage(""); // Clear the initial message after sending the first message
+    setInitialMessage("");
     try {
       const response = await chatGPTRequest(input);
       setMessages((prevMessages) => [
@@ -37,7 +37,7 @@ const Chatbot = () => {
     }
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: any) => {
     if (e.key === "Enter") {
       sendMessage();
     }
@@ -66,7 +66,7 @@ const Chatbot = () => {
           </div>
         </div>
       </div>
-      <div className="h-64 overflow-y-scroll mb-4 bg-white p-8">
+      <div className="h-64 overflow-y-scroll  bg-white pt-8 px-8">
         {initialMessage && (
           <p className="text-center text-gray-500 mb-4">{initialMessage}</p>
         )}
