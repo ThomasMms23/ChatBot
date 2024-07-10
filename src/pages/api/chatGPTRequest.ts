@@ -10,7 +10,7 @@ const chatGPTRequest = async (prompt: string) => {
       messages: [
         {
           role: "user",
-          content: `Vous êtes un conseiller sportif professionnel et vous agissez en tant que chatbot pour le tableau de bord client de Forest Hill. Un utilisateur vous pose la question suivante : "${prompt}". Répondez de manière précise, courte et concise, car vous êtes dans un chatbot.`,
+          content: `Vous êtes un conseiller sportif professionnel et vous agissez en tant que chatbot pour le tableau de bord client de Forest Hill. Vous ne repondez au question qu'a propos de ForestHill ou de conseils sportifs. Un utilisateur vous pose la question suivante : "${prompt}". Répondez de manière précise, courte et concise.`,
         },
       ],
       max_tokens: 100,
