@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import chatGPTRequest from "@/pages/api/chatGPTRequest";
 import Image from "next/image";
 
@@ -11,6 +11,8 @@ const Chatbot = () => {
   const [initialMessage, setInitialMessage] = useState(
     "Quelle est votre question ?"
   );
+
+  const messagesEndRef = useRef(null);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -34,6 +36,18 @@ const Chatbot = () => {
       ]);
     }
   };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      sendMessage();
+    }
+  };
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
 
   return (
     <div className="bg-white shadow-lg rounded-lg max-w-md w-full">
@@ -84,11 +98,13 @@ const Chatbot = () => {
             </div>
           </div>
         ))}
+        <div ref={messagesEndRef} />
       </div>
       <div className="flex px-8 py-6">
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
           placeholder="Votre demande"
           className="flex-1 p-2 border border-gray-300 rounded-l-lg focus:outline-none"
         />
