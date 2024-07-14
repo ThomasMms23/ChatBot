@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 const navigation = [
   { name: "Club", href: "#" },
@@ -24,7 +25,13 @@ export default function Example() {
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img alt="" src="/forest-logo.png" className="h-8 w-auto" />
+              <Image
+                alt=""
+                src="/forest-logo.png"
+                width={400}
+                height={400}
+                className="h-8 w-auto"
+              />
             </a>
           </div>
           <div className="flex lg:hidden">
@@ -59,7 +66,13 @@ export default function Example() {
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
-                <img alt="" src="/forest-logo.png" className="h-8 w-auto" />
+                <Image
+                  alt=""
+                  src="/forest-logo.png"
+                  width={400}
+                  height={400}
+                  className="h-8 w-auto"
+                />
               </a>
               <button
                 type="button"
