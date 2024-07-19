@@ -29,7 +29,7 @@ Ce projet est une refonte du site web de ForestHill réalisée dans le cadre d'u
    ```
 4. Créez un fichier `.env.local` à la racine du projet et ajoutez vos clés API OpenAI :
    ```env
-   OPENAI_API_KEY=your_openai_api_key
+   NEXT_PUBLIC_OPENAI_API_KEY=your_openai_api_key
    ```
 5. Lancez l'application en mode développement :
    ```bash
