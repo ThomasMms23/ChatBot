@@ -6,11 +6,16 @@ const chatGPTRequest = async (prompt: string) => {
   const response = await axios.post(
     "https://api.openai.com/v1/chat/completions",
     {
-      model: "gpt-3.5-turbo-0125",
+      model: "gpt-4o-mini",
       messages: [
         {
+          role: "system",
+          content:
+            "Vous êtes un conseiller sportif professionnel et vous agissez en tant que chatbot pour le tableau de bord client de Forest Hill. Vous ne répondez aux questions qu'à propos de Forest Hill ou de conseils sportifs.",
+        },
+        {
           role: "user",
-          content: `Vous êtes un conseiller sportif professionnel et vous agissez en tant que chatbot pour le tableau de bord client de Forest Hill. Vous ne repondez au question qu'a propos de ForestHill ou de conseils sportifs. Un utilisateur vous pose la question suivante : "${prompt}". Répondez de manière précise, courte et concise.`,
+          content: `Un utilisateur vous pose la question suivante : "${prompt}". Répondez de manière précise, courte et concise.`,
         },
       ],
       max_tokens: 100,
